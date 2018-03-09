@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Sheriff
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+
+            if (n%2 != 0)
+            {                
+                int dots = ((3 * n) - 1) / 2;
+                string upDots = new string('.', dots);
+                Console.WriteLine($"{upDots}x{upDots}");
+
+                int secondDots = ((3 * n) - 3) / 2;
+                string secondDotss = new string('.', secondDots);
+                Console.WriteLine($"{secondDotss}/x\\{secondDotss}");
+                Console.WriteLine($"{secondDotss}x|x{secondDotss}");
+
+                int dotMiddle = ((3 * n - 1) - (2 * n)) / 2;
+                int X = n;
+                for (int rows = 1; rows <= n/2+1; rows++)
+                {                    
+                    string dotsMiddle = new string('.', dotMiddle);
+                    string Xmiddle = new string('x', X);
+                    Console.WriteLine($"{dotsMiddle}{Xmiddle}|{Xmiddle}{dotsMiddle}");
+                    X++;
+                    dotMiddle--;                                     
+                }
+                                
+                X = (3*n- 3)/ 2;
+                for (int i = 1; i <= n/2; i++)
+                {
+                    string dotsMiddle = new string('.', i);
+                    string Xmiddle = new string('x', X);
+                    Console.WriteLine($"{dotsMiddle}{Xmiddle}|{Xmiddle}{dotsMiddle}");
+                    X--;                    
+                }
+
+                Console.WriteLine($"{secondDotss}/x\\{secondDotss}");
+                Console.WriteLine($"{secondDotss}\\x/{secondDotss}");
+
+                dotMiddle = ((3 * n - 1) - (2 * n)) / 2;
+                X = n;
+                for (int rows = 1; rows <= n / 2 + 1; rows++)
+                {
+                    string dotsMiddle = new string('.', dotMiddle);
+                    string Xmiddle = new string('x', X);
+                    Console.WriteLine($"{dotsMiddle}{Xmiddle}|{Xmiddle}{dotsMiddle}");
+                    X++;
+                    dotMiddle--;
+                }
+                
+                X = (3 * n - 3) / 2;
+                for (int i = 1; i <= n / 2; i++)
+                {
+                    string dotsMiddle = new string('.', i);
+                    string Xmiddle = new string('x', X);
+                    Console.WriteLine($"{dotsMiddle}{Xmiddle}|{Xmiddle}{dotsMiddle}");
+                    X--;
+                    
+                }
+                
+                Console.WriteLine($"{secondDotss}x|x{secondDotss}");
+                Console.WriteLine($"{secondDotss}\\x/{secondDotss}");
+                Console.WriteLine($"{upDots}x{upDots}");
+            }
+
+        }
+    }
+}
