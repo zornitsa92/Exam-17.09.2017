@@ -1,0 +1,93 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MobileOperator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string period = Console.ReadLine();
+            string type = Console.ReadLine();
+            string internet = Console.ReadLine();
+            int months = int.Parse(Console.ReadLine());
+
+            double price = 0;
+
+            switch (type)
+            {
+                case "Small":
+                    if (period == "one")
+                    {
+                        price = 9.98;
+                    }
+                    else
+                    {
+                        price = 8.58;
+                    }
+                    break;
+                case "Middle":
+                    if (period == "one")
+                    {
+                        price = 18.99;
+                    }
+                    else
+                    {
+                        price = 17.09;
+                    }
+                    break;
+                case "Large":
+                    if (period == "one")
+                    {
+                        price = 25.98;
+                    }
+                    else
+                    {
+                        price = 23.59;
+                    }
+                    break;
+                case "ExtraLarge":
+                    if (period == "one")
+                    {
+                        price = 35.99;
+                    }
+                    else
+                    {
+                        price = 31.79;
+                    }
+                    break;
+            }
+
+
+            double plus = 0;
+            if (internet == "yes")
+            {
+                if (price <= 10)
+                {
+                    plus += 5.50;
+                }
+                else if (price <= 30)
+                {
+                    plus += 4.35;
+                }
+                else
+                {
+                    plus += 3.85;
+                }                
+            }
+
+            double totalPrice = price + plus;          
+            
+            if (period == "two")
+            {
+                totalPrice = totalPrice - totalPrice * 0.0375;
+            }
+
+            double totalContractPrice = totalPrice * months;
+            Console.WriteLine($"{totalContractPrice:f2} lv.");
+        }
+    }
+}
